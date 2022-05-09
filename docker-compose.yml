@@ -1,0 +1,15 @@
+version: "3"
+services:
+  cpp:
+    # build: ./
+    image: ghcr.io/1219mai0410/cpp
+    container_name: cpp
+    volumes:
+      - ./code:/code
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    devices:
+      - /dev/video0:/dev/video0:mwr
+    working_dir: /code
+    environment:
+      DISPLAY: unix$DISPLAY
+    tty: true
